@@ -12,6 +12,16 @@ public class reverseArray {
             i++ ; j--;
         }
     }
+    public static void reverseRecursive (int [] arr , int i , int j){
+        if(i>=j){
+            return;
+        }
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        reverseRecursive(arr, i+1, j-1);
+
+    }
     public static void displayArray(int [] arr){
         for (int i = 0 ; i<arr.length ; i++){
             System.out.print(arr[i] + " -> ");
@@ -27,7 +37,8 @@ public class reverseArray {
             arr[i] = scn.nextInt();
         } 
         displayArray(arr);
-        reverseAnArray(arr);
+        // reverseAnArray(arr);
+        reverseRecursive(arr ,0 , arr.length - 1);
         displayArray(arr);
     }
 }
